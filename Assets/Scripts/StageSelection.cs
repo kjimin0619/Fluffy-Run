@@ -5,109 +5,80 @@ using UnityEngine.SceneManagement;
 
 public class StageSelection : MonoBehaviour
 {
-    public bool stage1Cleared = false;
-    public bool stage2Cleared = false;
-    public bool stage3Cleared = false;
-    public bool stage4Cleared = false;
-    public bool stage5Cleared = false;
+    // 스테이지 클리어하면 "ClearStage(스테이지 번호)" 메서드를 호출해주세요.
+    // 그러면 스테이지 선택 화면에서 
+    // 다음 스테이지의 barrier가 사라지고 게임 플레이가 가능해집니다!
 
-    public GameObject stage2Barrier;
-    public GameObject stage3Barrier;
-    public GameObject stage4Barrier;
-    public GameObject stage5Barrier;
+    // todo 
+    // 3별 평가(?) 기능 구현
+    // 
+    
+    public bool[] stageCleared = new bool[5];
+    public GameObject[] stageBarriers = new GameObject[4];
 
     public void Start(){
-        stage2Barrier = GameObject.Find("Stage2/UnclearBarrier");
-        stage3Barrier = GameObject.Find("Stage3/UnclearBarrier");
-        stage4Barrier = GameObject.Find("Stage4/UnclearBarrier");
-        stage5Barrier = GameObject.Find("Stage5/UnclearBarrier");
+        for (int i = 0 ; i <stageBarriers.Length ; i++){
+            stageBarriers[i] = GameObject.Find("Stage" + (i + 2) + "/UnclearBarrier");
+        }
     }
 
     public void Update(){
-        bool isStage1Cleared = checkStageClear();
 
-        if (isStage1Cleared){
-            Stage1Cleared();
+        for (int i = 0; i < stageCleared.Length - 1; i++)
+        {
+            if (stageCleared[i])
+            {
+                ClearStage(i + 1);
+            }
+
+            else {
+                stageBarriers[i].SetActive(true);
+            }
         }
     }
     
-    public bool checkStageClear(){
-        return stage1Cleared;
-    }
-
-    public void OnStage1()
+    public void OnStage(int stageIndex)
     {
-        Debug.Log("stage1");
-        SceneManager.LoadScene("Stage1");
+        if (stageIndex > 0 && stageIndex <= stageCleared.Length)
+        {
+            int sceneIndex = stageIndex;
+
+            if (sceneIndex == 1) 
+            {
+                SceneManager.LoadScene("Stage" + (sceneIndex));
+            }
+            else if (stageCleared[stageIndex - 2])
+            {
+                SceneManager.LoadScene("Stage" + (sceneIndex));
+                Debug.Log("Stage" + stageIndex);
+            }
+            else
+            {
+                Debug.Log("Stage " + (stageIndex - 1) + " must be cleared first");
+            }
+        }
+        else
+        {
+            Debug.Log("Invalid stage index");
+        }
     }
 
-    public void OnStage2()
+    public void ClearStage(int stageIndex)
     {
-        
-        if (stage1Cleared){
-            SceneManager.LoadScene("Stage2");
-            Debug.Log("stage2");
+        if (stageIndex > 0 && stageIndex < stageCleared.Length)
+        {
+            stageCleared[stageIndex - 1] = true;
+            stageBarriers[stageIndex - 1].SetActive(false); // 다음 스테이지 barrier 비활성화
         }
-        else {
-            Debug.Log("Stage 1 must be cleared first");
+        else if (stageIndex == stageCleared.Length)
+        {
+            // 마지막 스테이지(Stage5) 클리어
+            stageCleared[stageIndex - 1] = true;
         }
-    }
-
-    public void OnStage3()
-    {
-         if (stage2Cleared){
-            SceneManager.LoadScene("Stage3");
-            Debug.Log("stage3");
+        else
+        {
+            Debug.Log("Invalid stage index");
         }
-        else {
-            Debug.Log("Stage 2 must be cleared first");
-        }
-    }
-
-    public void OnStage4()
-    {
-        if (stage3Cleared){
-            SceneManager.LoadScene("Stage4");
-            Debug.Log("stage4");
-        }
-        else {
-            Debug.Log("Stage 3 must be cleared first");
-        }
-    }
-
-    public void OnStage5()
-    {
-        if (stage4Cleared){
-            SceneManager.LoadScene("Stage5");
-            Debug.Log("stage5");
-        }
-        else {
-            Debug.Log("Stage 4 must be cleared first");
-        }
-    }
-
-    public void ClearStage1(){
-        stage1Cleared = true;
-        stage2Barrier.SetActive(false); // stage2 barrier 비활성화
-    }
-
-    public void ClearStage2(){
-        stage2Cleared = true;
-        stage3Barrier.SetActive(false); // stage3 barrier 비활성화
-    }
-
-    public void ClearStage3(){
-        stage3Cleared = true;
-        stage4Barrier.SetActive(false); // stage4 barrier 비활성화
-    }
-
-    public void ClearStage4(){
-        stage4Cleared = true;
-        stage5Barrier.SetActive(false); // stage5 barrier 비활성화
-    }
-
-    public void ClearedStage5(){
-        stage5Cleared = true;
     }
 
     public void OnClickExit()
