@@ -18,7 +18,7 @@ public class StageSelection : MonoBehaviour
         for (int i = 0 ; i <stageBarriers.Length ; i++){
             stageBarriers[i] = GameObject.Find("Stage" + (i + 2) + "/UnclearBarrier");
         }
-        ClearStage(1,3);
+        ClearStage(1,3); // 작동 확인용
     }
 
     public void Update(){
@@ -82,7 +82,7 @@ public class StageSelection : MonoBehaviour
             if (0 < result && result < 4)
             {
                 clearResult[stageIndex-1] = result; // 클리어 결과 저장(3,2,1 중 하나로)
-                Debug.Log("3 star result : " + result);
+                Debug.Log("[Stage : " + stageIndex + "] 3 star result : " + result);
 
                 // 결과에 해당하는 별 프리팹 가져오기
                 GameObject starPrefab = Resources.Load<GameObject>("UI/Star"+result);
@@ -99,7 +99,7 @@ public class StageSelection : MonoBehaviour
                 }   
                 else 
                 {
-                    Debug.LogError("Prefab is not found in Assets/Source(UI) folder.");
+                    Debug.LogError("Prefab is not found.");
                 }
 
             }
