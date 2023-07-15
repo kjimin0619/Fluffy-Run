@@ -32,4 +32,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Timer.unity
     guid: c74c3842f6dea214fabfd5646e02395b
+  - enabled: 1
+    path: Assets/Scenes/TestStage.unity
+    guid: 5c40eceac8cb9b641a56f9fec09e86d8
   m_configObjects: {}
