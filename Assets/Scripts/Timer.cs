@@ -18,9 +18,19 @@ public class Timer : MonoBehaviour
 
     public void Start()
     {
-        stopTimer = false;
-        timerSlider.maxValue = gameTime;
-        timerSlider.value = gameTime;
+        gameTime = 10; // 10초로 설정
+        GameObject[] sliderObjects = GameObject.FindGameObjectsWithTag("Timer");
+        if (sliderObjects.Length > 0)
+        {
+            timerSlider = sliderObjects[0].GetComponent<Slider>();
+            stopTimer = false;
+            timerSlider.maxValue = gameTime;
+            timerSlider.value = gameTime;
+        }
+        else
+        {
+            Debug.LogError("Slider with 'Timer' tag not found.");
+        }
     }
 
     public void Update()
