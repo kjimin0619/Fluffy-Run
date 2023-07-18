@@ -5,7 +5,7 @@ using UnityEngine;
 public class Timedecreaser : MonoBehaviour
 {
 
-    [Header("´ê¾ÒÀ» ¶§ ÁÙ¾îµå´Â ½Ã°£")]
+    [Header("ë‹¿ì•˜ì„ ë•Œ ì¤„ì–´ë“œëŠ” ì‹œê°„")]
     public float decreasing = 5f;
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -13,7 +13,7 @@ public class Timedecreaser : MonoBehaviour
         if (collision.gameObject.name == "Character")
         {
             Destroy(gameObject);
-            Debug.Log("Á¦ÇÑ ½Ã°£ -" + decreasing );
+            Debug.Log("ì œí•œì‹œê°„-" + decreasing );
 
         }
     }
