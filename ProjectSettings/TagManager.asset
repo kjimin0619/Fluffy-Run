@@ -4,6 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Coin
+  - Spike
+  - StrongSpike
+  - Button
+  - Lever
+  - Star
   - Timer
   layers:
   - Default
