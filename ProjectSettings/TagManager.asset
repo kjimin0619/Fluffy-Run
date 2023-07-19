@@ -10,6 +10,7 @@ TagManager:
   - Button
   - Lever
   - Star
+  - Timer
   layers:
   - Default
   - TransparentFX

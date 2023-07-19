@@ -62,8 +62,13 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
+<<<<<<< HEAD:Assets/Resources/Sprites/Tiles/Spike.png.meta
   applyGammaDecoding: 0
   cookieLightType: 0
+=======
+  applyGammaDecoding: 1
+  cookieLightType: 1
+>>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c:Assets/Resources/Sprites/Character/Character Animation ( Update 1.8 )/Idle/Blink/1x.png.meta
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -76,7 +81,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD:Assets/Resources/Sprites/Tiles/Spike.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+>>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c:Assets/Resources/Sprites/Character/Character Animation ( Update 1.8 )/Idle/Blink/1x.png.meta
   - serializedVersion: 3
     buildTarget: Standalone
     maxTextureSize: 2048
@@ -88,7 +97,11 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD:Assets/Resources/Sprites/Tiles/Spike.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+>>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c:Assets/Resources/Sprites/Character/Character Animation ( Update 1.8 )/Idle/Blink/1x.png.meta
   - serializedVersion: 3
     buildTarget: Server
     maxTextureSize: 2048
@@ -100,14 +113,22 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+<<<<<<< HEAD:Assets/Resources/Sprites/Tiles/Spike.png.meta
     forceMaximumCompressionQuality_BC6H_BC7: 0
+=======
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+>>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c:Assets/Resources/Sprites/Character/Character Animation ( Update 1.8 )/Idle/Blink/1x.png.meta
   spriteSheet:
     serializedVersion: 2
     sprites: []
     outline: []
     physicsShape: []
     bones: []
+<<<<<<< HEAD:Assets/Resources/Sprites/Tiles/Spike.png.meta
     spriteID: 5e97eb03825dee720800000000000000
+=======
+    spriteID: dd3a57281a6d5d245bb332a9968cbfb0
+>>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c:Assets/Resources/Sprites/Character/Character Animation ( Update 1.8 )/Idle/Blink/1x.png.meta
     internalID: 0
     vertices: []
     indices: 
