@@ -64,6 +64,7 @@ public class StageSelection : MonoBehaviour
             // 스테이지 1이나 직전 스테이지가 클리어되어있는 2~6스테이지 > 진입
             case 1:
             case >= 2 and <= StageCount when stageCleared[stageIndex - 1]:
+                Time.timeScale = 1f;
                 SceneManager.LoadScene($"Stage{stageIndex}");
                 break;
             // 직전 스테이지가 미클리어인 2~6스테이지 > 미진입
