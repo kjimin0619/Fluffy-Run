@@ -22,8 +22,10 @@ public class ButtonSelection : MonoBehaviour
 
     public void OnClickRetry()
     {
-        Debug.Log("retry");
-        SceneManager.LoadScene(sceneName);
+        Debug.Log("Retry Pressed");
+
+        int stageNum = PlayerPrefs.GetInt("currentPlayingStage", 0);
+        SceneManager.LoadScene(stageNum is >= 1 and <= 6 ? $"Stage{stageNum}" : "StageSelectScene");
     }
 
     public void OnClickExit()

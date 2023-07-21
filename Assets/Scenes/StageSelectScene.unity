@@ -2175,9 +2175,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b6f0edb8ca62cf94990eed7628611e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageCleared: 000000000000
-  clearResult: 000000000000000000000000000000000000000000000000
+  stageCleared: 00000000000000
   stageBarriers:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -2190,6 +2191,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  - {fileID: 0}
+  clearStageSprite: {fileID: 0}
   allClearObject: {fileID: 0}
 --- !u!1 &1182195819
 GameObject:

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,78 +13,66 @@ public class StageSelection : MonoBehaviour
     // 그러면 스테이지 선택 화면에서 
     // 다음 스테이지의 barrier가 사라지고 3별이 표시되며 게임 플레이가 가능해집니다!
 
-    public bool[] stageCleared = new bool[6]; // 스테이지별 클리어 유무
-    public int[] clearResult = new int[]{0,0,0,0,0,0}; // 스테이지별 클리어 결과(3별 평가 결과)
-    public GameObject[] stageBarriers = new GameObject[5]; // 스테이지별 베리어 오브젝트
-    public GameObject[] stageTitles = new GameObject[6]; // 스테이지 타이틀 오브젝트
+    public const int StageCount = 6;
+    
+    public bool[] stageCleared = new bool[StageCount + 1]; // 스테이지별 클리어 유무
+    public GameObject[] stageBarriers = new GameObject[StageCount + 1]; // 스테이지별 베리어 오브젝트
+    public GameObject[] stageTitles = new GameObject[StageCount + 1]; // 스테이지 타이틀 오브젝트
     public Sprite clearStageSprite; // 클리어된 스테이지 타이틀 스프라이트
     public GameObject allClearObject; // 올클리어 오브젝트
 
     public void Start(){
-        for (int i = 0 ; i <stageBarriers.Length ; i++)
+        // 베리어, 타이틀 설정
+        for (int i = 2; i <= StageCount; i++)
         {
-            stageBarriers[i] = GameObject.Find("Stage" + (i + 2) + "/UnclearBarrier");
+            stageBarriers[i] = GameObject.Find($"Stage{i}/UnclearBarrier");
         }
-        for (int i = 0 ; i <stageTitles.Length ; i++)
+        for (int i = 1; i <= StageCount; i++)
         {
-            stageTitles[i] = GameObject.Find("Stage" + (i + 1) + "/StageTitle");
+            stageTitles[i] = GameObject.Find($"Stage{i}/StageTitle");
         }
 
+        // 올클리어 오브젝트 우선 비활성화
         allClearObject = GameObject.Find("AllClear");
         allClearObject.SetActive(false);
 
-        clearStageSprite =  Resources.Load <Sprite>("Sprites/UI/clear_stage"); 
+        clearStageSprite =  Resources.Load<Sprite>("Sprites/UI/clear_stage"); 
         if (!clearStageSprite) {
             Debug.Log("Clear stage sprite not found");
         }
 
-        ClearStage(1,3); // 작동 확인용(추후 삭제될 예정)
+        // 저장된 별 갯수 불러와서 1개 이상이면 클리어 처리
+        for (int num = 1; num <= StageCount; num++)
+        {
+            int currentStar = PlayerPrefs.GetInt($"Stage{num}", 0);
+
+            if (currentStar > 0)
+            {
+                ClearStage(num, currentStar);
+            }
+        }
     }
 
-    public void Update(){
-        // 코드의 정상 작동 확인을 위한 로직(추후 삭제될 예정)
-        // i = 0 ~ 4(5개)
-        for (int i = 0; i < stageCleared.Length - 1; i++)
-        {
-            if (stageCleared[i])
-            {
-                ClearStage(i + 1,0);
-            }
-
-            else {
-                stageBarriers[i].SetActive(true);
-            }
-        }
-        if (stageCleared[5])
-        {
-            ClearStage(6, 2);
-        }
+    public void Update() {
     }
     
     // 다음 스테이지로 이동하는 로직
     public void OnStage(int stageIndex)
     {
-        if (stageIndex > 0 && stageIndex <= stageCleared.Length)
+        switch (stageIndex)
         {
-            int sceneIndex = stageIndex;
-
-            if (sceneIndex == 1) 
-            {
-                SceneManager.LoadScene("Stage" + (sceneIndex));
-            }
-            else if (stageCleared[stageIndex - 2])
-            {
-                SceneManager.LoadScene("Stage" + (sceneIndex));
-                Debug.Log("Stage" + stageIndex);
-            }
-            else
-            {
-                Debug.Log("Stage " + (stageIndex - 1) + " must be cleared first");
-            }
-        }
-        else
-        {
-            Debug.Log("Invalid stage index");
+            // 스테이지 1이나 직전 스테이지가 클리어되어있는 2~6스테이지 > 진입
+            case 1:
+            case >= 2 and <= StageCount when stageCleared[stageIndex - 1]:
+                SceneManager.LoadScene($"Stage{stageIndex}");
+                break;
+            // 직전 스테이지가 미클리어인 2~6스테이지 > 미진입
+            case >= 2 and <= StageCount:
+                Debug.Log($"Stage {stageIndex - 1} 선행 클리어 필요");
+                break;
+            default:
+                Debug.Log("잘못된 인덱스");
+                break;
         }
     }
 
@@ -95,13 +84,13 @@ public class StageSelection : MonoBehaviour
     // ** 마지막 스테이지는 클리어 후 AllClear 오브젝트 표시
     public void ClearStage(int stageIndex, int result)
     {
-        if (stageIndex > 0 && stageIndex <= stageCleared.Length)
+        if (stageIndex is >= 1 and <= StageCount)
         {
             // 해당 스테이지 clear 처리
-            stageCleared[stageIndex - 1] = true;  
+            stageCleared[stageIndex] = true;  
             
             // 스테이지 색상변경
-            GameObject stageTitleObj = stageTitles[stageIndex - 1];
+            GameObject stageTitleObj = stageTitles[stageIndex];
             if (stageTitleObj != null)
             {
                 Image stageTitleImage = stageTitleObj.GetComponent<Image>();
@@ -116,24 +105,20 @@ public class StageSelection : MonoBehaviour
             }
 
             // stage 6(마지막 스테이지) 클리어시 all clear 표시 추가
-            if (stageIndex == stageCleared.Length)
+            if (stageIndex == StageCount)
             {
                 StartCoroutine(ShowClearObjectWithDelay());
                 Debug.Log("Clear All Stage!");
             }
-
             else
             {
-                // 스테이지 1 ~ 5에만 적용
-                stageBarriers[stageIndex - 1].SetActive(false); // 다음 스테이지 barrier 비활성화
+                // 스테이지 1 ~ 5에만 적용: 다음 스테이지 barrier 비활성화
+                stageBarriers[stageIndex + 1].SetActive(false);
             }
             
             // 3별 표시
-            if (0 < result && result < 4)
+            if (result is >= 1 and <= 3)
             {
-                clearResult[stageIndex-1] = result; // 클리어 결과 저장(3,2,1 중 하나로)
-                Debug.Log("[Stage : " + stageIndex + "] 3 star result : " + result);
-
                 // 결과에 해당하는 별 프리팹 가져오기
                 GameObject starPrefab = Resources.Load<GameObject>("Sprites/UI/Star"+result);
                 if (starPrefab != null)
@@ -152,11 +137,10 @@ public class StageSelection : MonoBehaviour
                     Debug.LogError("Star Prefab is not found.");
                 }
             }
-        }   
+        }
         else
         {
-            Debug.Log("Invalid stage index");
-            OnClickExit();
+            Debug.Log("Invalid Stage Index");
         }
     }
     
