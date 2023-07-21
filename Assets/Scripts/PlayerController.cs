@@ -41,4 +41,16 @@ public class PlayerController : MonoBehaviour
             playerSprite.flipX = (direction < 0);
         }
     }
+
+    // 동전 충돌 감지
+    // 별, 버튼, 레버는 각자 구현
+    // 가시는 TimeDecrease에서 (CollisionEnter로 확인)
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.CompareTag("Coin"))
+        {
+            CoinCounter.Instance.AddCoin();
+            col.gameObject.SetActive(false);
+        }
+    }
 }

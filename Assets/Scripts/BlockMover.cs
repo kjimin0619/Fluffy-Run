@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blockmover : MonoBehaviour
+public class BlockMover : MonoBehaviour
 {
 
     private Rigidbody2D Block;

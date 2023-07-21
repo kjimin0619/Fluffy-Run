@@ -22,8 +22,22 @@ public class ButtonSelection : MonoBehaviour
 
     public void OnClickRetry()
     {
-        Debug.Log("retry");
-        SceneManager.LoadScene(sceneName);
+        // 클리어 시 시간이 정지하게 되니 시간이 흐르게 설정
+        Time.timeScale = 1f;
+        
+        Debug.Log("Retry Pressed");
+
+        int stageNum = PlayerPrefs.GetInt("currentPlayingStage", 0);
+        SceneManager.LoadScene(stageNum is >= 1 and <= 6 ? $"Stage{stageNum}" : "StageSelectScene");
+    }
+
+    public void OnClickCurrentRetry()
+    {
+        // 클리어 시 시간이 정지하게 되니 시간이 흐르게 설정
+        Time.timeScale = 1f;
+        
+        Debug.Log("Retrying Current Pressed");
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void OnClickExit()

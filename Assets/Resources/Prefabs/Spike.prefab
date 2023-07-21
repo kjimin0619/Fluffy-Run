@@ -99,11 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   decreasing: 5
-<<<<<<< HEAD
 --- !u!60 &8211304289322145566
-=======
---- !u!60 &6719925865224297068
->>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -120,13 +116,8 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-<<<<<<< HEAD
     oldSize: {x: 1.28, y: 1.28}
     newSize: {x: 1, y: 1}
-=======
-    oldSize: {x: 2.56, y: 1.29}
-    newSize: {x: 2.56, y: 1.29}
->>>>>>> 693c925ea8ad17d2d970063cefa4cb964ec7666c
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
