@@ -78,8 +78,6 @@ Execute the above command in your terminal or command prompt to copy all the fil
 
 #### step 5. Enjoy it as much as you want!
 
-<br><br/>
-
 ## Dependency
 
 #### 본 게임은 Unity 무료 에셋을 활용하여 제작되었습니다.
