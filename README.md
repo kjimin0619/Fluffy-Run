@@ -66,7 +66,7 @@ Clear each stage within a given time limit.
 
 #### step 1. Clone the repository to start working with the project.
 
-`git clone https://github.com/your-username/your-repository.git`
+`git clone https://github.com/kjimin0619/Fluffy-Run.git`
 
 Execute the above command in your terminal or command prompt to copy all the files and folders of the project to your current working directory.
 
