@@ -21,8 +21,8 @@ public class ClearCheck : MonoBehaviour
     void Start()
     {
         PlayerPrefs.SetInt("currentPlayingStage", stageNum);
-        FinishUI = GameObject.Find("FinishUI");
-        timeText = FinishUI.transform.Find("TimeText").gameObject.GetComponent<TMP_UI>();
+        // FinishUI = GameObject.Find("FinishUI");
+        // timeText = FinishUI.transform.Find("TimeText").gameObject.GetComponent<TMP_UI>();
         FinishUI.SetActive(false);
     }
     
@@ -30,7 +30,6 @@ public class ClearCheck : MonoBehaviour
     {
         if (col.gameObject.name == "Character")
         {
-            
             Debug.Log("Clear");
             SetClear();
             

@@ -968,7 +968,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: EXIT
+  m_Text: 'SELECT
+
+'
 --- !u!222 &2011558004
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -990,7 +992,7 @@ GameObject:
   - component: {fileID: 2045243232}
   - component: {fileID: 2045243231}
   m_Layer: 5
-  m_Name: ExitButton
+  m_Name: SelectButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1063,7 +1065,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1211909912}
         m_TargetAssemblyTypeName: ButtonSelection, Assembly-CSharp
-        m_MethodName: OnClickExit
+        m_MethodName: OnClickStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

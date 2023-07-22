@@ -30,8 +30,8 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage5.unity
     guid: 8500583dad42ed648a9c7e37e7cb69b1
   - enabled: 1
-    path: Assets/Scenes/Timer.unity
-    guid: c74c3842f6dea214fabfd5646e02395b
+    path: Assets/Scenes/Stage6.unity
+    guid: 830ac011eb2cf41459abf9390201d4f8
   - enabled: 1
     path: Assets/Scenes/TestStage.unity
     guid: 5c40eceac8cb9b641a56f9fec09e86d8
