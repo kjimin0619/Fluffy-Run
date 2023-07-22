@@ -1,6 +1,6 @@
 # Fluffy-Run
 
-This game project was developed as part of the tutorial project for **Team 3** at _Cien,_ the game development club in Chung-Ang University.
+This game was developed as part of the tutorial project for **Team 3** at _Cien,_ the game development club in Chung-Ang University.
 
 <img src="./Docs/img/Title.png" alt="타이틀" width="70%">
 <img src="./Docs/img/StageSelection.png" alt="스테이지 선택" width="70%">
