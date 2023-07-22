@@ -1,8 +1,7 @@
 # Fluffy-Run
-## 1. Description
 This game project was developed as part of the tutorial project for **Team 3** at *Cien,* the game development club in Chung-Ang University. 
 
-## 2. Introduction
+## Introduction
 #### Game Genre
 Puzzle Platform & Stage Format  
 
@@ -14,24 +13,29 @@ The core mechanic revolves around designing various stages with unique configura
 
 #### Game Loop 
 Clear each stage within a given time limit. 
-  
-## 3. Features
-### 플레이어 이동
-  - 좌우 이동 : 방향키(⬅️➡️)
-  - 점프 : `space bar`
+<br><br/>  
+## Features
+### Player Movement
+- Move Left/Right: Arrow Keys (⬅️➡️)
+- Jump: `Space Bar`
 
-    
 ### Other Interactions
-- 레버
-- 발판
-- 이동가능한 플럭
-
-## 4. Developers
-- [Jimin Kim]()
-- [Jihun Kim]()
-- [Minseok Gu]()
-
-## 5. How to play
+#### Levers
+- When the player comes into contact with a lever and presses the ⬆️ arrow key, the lever's ON/OFF state toggles, and the connected platform object moves.
+  
+#### Buttons
+- When the player or a block touches a button, the connected platform object moves while the button is held down.
+- Once released, the platform object returns to its original state.
+  
+#### Movable Blocks
+- The player can push the blocks to perform necessary actions to clear the game.
+<br><br/> 
+## Developers
+- [Jimin Kim](https://github.com/kjimin0619)
+- [Jihun Kim](https://github.com/AppliedAlpha)
+- [Minseok Gu](https://github.com/Evturtl)
+<br><br/> 
+## How to play
 #### step 1. Clone the repository to start working with the project.
 `git clone https://github.com/your-username/your-repository.git`  
 
