@@ -11,6 +11,7 @@ TagManager:
   - Lever
   - Star
   - Timer
+  - Block
   layers:
   - Default
   - TransparentFX
