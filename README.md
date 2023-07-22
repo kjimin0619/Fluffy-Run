@@ -74,7 +74,7 @@ Execute the above command in your terminal or command prompt to copy all the fil
 
 #### step 3. Move into the `Build_v1` folder.
 
-#### step 4. Run `Stage Puzzle Game.exe`.
+#### step 4. Run `Pluffy Run.exe`.
 
 #### step 5. Enjoy it as much as you want!
 
