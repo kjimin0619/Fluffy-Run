@@ -1,6 +1,6 @@
 # Fluffy-Run
 
-This game was developed as part of the tutorial project for **Team 3** at _Cien,_ the game development club in Chung-Ang University.
+This game was developed as part of the tutorial project for **Team 3** at _CIEN_, the game development club in Chung-Ang University.
 
 <img src="./Docs/img/Title.png" alt="타이틀" width="70%">
 <img src="./Docs/img/StageSelection.png" alt="스테이지 선택" width="70%">
@@ -64,19 +64,16 @@ Clear each stage within a given time limit.
 
 ## How to play
 
-#### step 1. Clone the repository to start working with the project.
+#### Step 1. Go to '[Releases](https://github.com/kjimin0619/Fluffy-Run/releases)' of this repository.
 
-`git clone https://github.com/kjimin0619/Fluffy-Run.git`
+#### Step 2. In Assets, download `Fluffy-Run-(BUILD_VERSION).zip` file.
 
-Execute the above command in your terminal or command prompt to copy all the files and folders of the project to your current working directory.
+#### Step 3. Extract zip file, and run `Fluffy Run.exe`.
 
-#### step 2. Move into the cloned project folder.
+#### Step 4. Enjoy it as much as you want!
 
-#### step 3. Move into the `Build_v1` folder.
-
-#### step 4. Run `Fluffy Run.exe`.
-
-#### step 5. Enjoy it as much as you want!
+## Target Platform
+Windows x64
 
 ## Dependency
 
